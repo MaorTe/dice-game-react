@@ -12,8 +12,6 @@ import dice6 from './img/dice-6.png';
 import ScoreInput from './components/ScoreInput';
 class App extends React.Component {
 	state = {
-		isP1Winner: '',
-		isP2Winner: '',
 		disabledPanel: '',
 		activePanel: 'active',
 		turnSwapped: true,
@@ -92,7 +90,7 @@ class App extends React.Component {
 						classes="btn-roll"
 						icon="ion-ios-loop"
 						btnName="Roll dice"
-						onClick={this.randomNumber}></Button>
+						onClick={this.handleRolls}></Button>
 				)}
 				{!this.isPlayerWon() && (
 					<Button
@@ -153,7 +151,7 @@ class App extends React.Component {
 		)
 			return true;
 	};
-	randomNumber = () => {
+	handleRolls = () => {
 		//random number between 1 and 6
 		const randNum1 = Math.floor(Math.random() * (6 - 1 + 1) + 1);
 		const randNum2 = Math.floor(Math.random() * (6 - 1 + 1) + 1);
